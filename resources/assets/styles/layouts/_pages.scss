@@ -1,0 +1,27 @@
+.gallery-page {
+  h5 {
+    color: $brand-primary;
+    border-bottom: 2px solid;
+    text-transform: uppercase;
+    font-size: 38px;
+    font-weight: 400;
+  }
+
+  span.current {
+    color: $brand-primary;
+  }
+
+  .page-numbers {
+    color: #000;
+
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+
+  .gallery-bg {
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+  }
+}

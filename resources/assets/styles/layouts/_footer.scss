@@ -1,0 +1,55 @@
+footer {
+  background-color: $brand-primary;
+  color: $brand-white;
+
+  .nav-link {
+    padding: 8px 0;
+  }
+
+  .input-group {
+    @include media-breakpoint-down(sm) {
+      width: 75%;
+    }
+
+    .form-control {
+      background-color: #00c135;
+
+      &::placeholder {
+        color: #000;
+      }
+
+      &:focus {
+        box-shadow: none;
+        background-color: #00c135;
+      }
+    }
+  }
+
+  .input-group-text {
+    background-color: #00a226;
+    border: 1px;
+
+    i {
+      color: $brand-white;
+    }
+  }
+
+  .site-social {
+    i {
+      color: $brand-primary;
+    }
+  }
+
+  .copyright {
+    background-color: $brand-white;
+    color: $brand-primary;
+  }
+
+  a {
+    color: $brand-white;
+
+    &:hover {
+      color: $brand-white;
+    }
+  }
+}

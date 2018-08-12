@@ -1,0 +1,59 @@
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+/* stylelint-disable */
+body {
+  [dir=rtl] & {
+    font-family: 'DroidKufi-Regular';
+  }
+}
+/* stylelint-enable */
+
+a:hover {
+  text-decoration: none;
+}
+
+.custom-border {
+  position: relative;
+  height: 1px;
+  background-color: $brand-abbey;
+  margin: 40px 0;
+
+  img {
+    position: absolute;
+    top: -35px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
+.more-btn {
+  background-color: $brand-willow;
+  color: $brand-white;
+  font-size: 24px;
+  padding: 7px 20px;
+  border-radius: 10px;
+  text-transform: capitalize;
+
+  &:hover {
+    color: $brand-white;
+  }
+}
+
+.order-one {
+  @include media-breakpoint-down(sm) {
+    display: flex;
+    order: 1;
+  }
+}
+
+.order-two {
+  @include media-breakpoint-down(sm) {
+    display: flex;
+    order: 2;
+  }
+}

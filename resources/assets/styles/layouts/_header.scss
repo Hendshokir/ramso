@@ -1,0 +1,72 @@
+header {
+  max-height: 119px;
+  overflow: visible;
+  z-index: 2;
+  position: relative;
+}
+
+.banner .nav li {
+  @extend .nav-item;
+}
+
+.banner .nav a {
+  @extend .nav-link;
+}
+
+.navbar .menu-item {
+  .nav-link {
+    color: $brand-abbey;
+    font-size: 18px;
+    margin: 0 30px;
+
+    @include media-breakpoint-down(lg) {
+      margin: 0 10px;
+    }
+
+    @include media-breakpoint-down(md) {
+      margin: 0;
+    }
+  }
+
+  &.active,
+  &:hover {
+    .nav-link {
+      color: $brand-primary;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    display: block;
+    width: 47%;
+  }
+}
+
+.navbar-brand {
+  img {
+    width: 170px;
+  }
+}
+
+.navbar-toggler {
+  border: 0;
+
+  &:focus,
+  &:active {
+    outline: 0;
+  }
+}
+
+.navbar-collapse {
+  background-color: $brand-white;
+
+  &.show {
+    padding-bottom: 10px;
+  }
+}
+
+.site-social {
+  i {
+    color: $brand-abbey;
+    margin: 0 10px;
+  }
+}

@@ -1,0 +1,314 @@
+.home-slider {
+  height: 550px;
+  position: relative;
+
+  @include media-breakpoint-down(sm) {
+    height: 350px;
+  }
+
+  .overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .carousel {
+    height: 550px;
+
+    @include media-breakpoint-down(sm) {
+      height: 350px;
+    }
+
+    .carousel-item {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      .carousel-caption {
+        bottom: 100px;
+        left: 14%;
+        right: 14%;
+
+        @include media-breakpoint-down(sm) {
+          bottom: 50px;
+        }
+
+        h5 {
+          font-size: 58px;
+          font-weight: 400;
+
+          @include media-breakpoint-down(lg) {
+            font-size: 44px;
+          }
+
+          @include media-breakpoint-down(sm) {
+            font-size: 30px;
+          }
+
+          span {
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+        }
+
+        p {
+          font-size: 30px;
+
+          @include media-breakpoint-down(lg) {
+            font-size: 24px;
+          }
+
+          @include media-breakpoint-down(sm) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.latest-product {
+  margin-top: -80px;
+
+  @include media-breakpoint-down(sm) {
+    margin-top: -30px;
+  }
+
+  .card {
+    padding: 0 13px;
+    background-color: transparent;
+
+    .card-img-top {
+      border-radius: 5px;
+      height: 415px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include media-breakpoint-down(sm) {
+        height: 200px;
+      }
+    }
+
+    .card-body {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      right: 0;
+      color: $brand-white;
+
+      @include media-breakpoint-down(sm) {
+        top: 40px;
+      }
+
+      .card-title {
+        font-size: 29px;
+
+        @include media-breakpoint-down(lg) {
+          font-size: 16px;
+        }
+
+        @include media-breakpoint-down(sm) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .archive-link {
+    a {
+      @extend .more-btn;
+    }
+  }
+}
+
+/* stylelint-disable */
+.about-section {
+  position: relative;
+  padding-bottom: 40px;
+
+  .about-bg {
+    background-size: 74%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 330px;
+    position: absolute;
+    margin-left: 10%;
+    top: 26px;
+
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
+
+  .about-img {
+    height: 233px;
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+
+    @include media-breakpoint-down(sm) {
+      margin-top: 30px;
+      height: 330px;
+    }
+  }
+
+  .content {
+    .title {
+      span {
+        color: $brand-primary;
+        border-bottom: 2px solid;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 38px;
+        padding-bottom: 13px;
+        margin-right: 10px;
+      }
+
+      img {
+        width: 115px;
+        height: auto;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+/* stylelint-enable */
+
+.new-arrival {
+  h2 {
+    color: $brand-primary;
+    font-weight: 400;
+    border-bottom: 2px solid;
+    padding-bottom: 5px;
+  }
+
+  .products-slider {
+    .slider-img {
+      width: 300px;
+      display: block;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* stylelint-disable */
+    .card-title {
+      color: $brand-primary;
+    }
+    /* stylelint-enable */
+  }
+
+  .lSAction {
+    a {
+      background-image: none;
+
+      &.lSNext {
+        /* stylelint-disable */
+        font: normal normal normal 25px/1 FontAwesome;
+        /* stylelint-enable */
+
+        &::before {
+          content: "\f105";
+        }
+      }
+
+      &.lSPrev {
+        /* stylelint-disable */
+        font: normal normal normal 25px/1 FontAwesome;
+        /* stylelint-enable */
+
+        &::before {
+          content: "\f053";
+        }
+      }
+    }
+  }
+}
+
+.home-background {
+  height: 200px;
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+
+  @include media-breakpoint-up(md) {
+    height: 350px;
+    background-size: cover;
+  }
+}
+
+.latest-news {
+  background-color: #fafafa;
+  padding: 40px 0;
+
+  @include media-breakpoint-down(sm) {
+    padding: 25px 0;
+  }
+
+  h2 {
+    color: $brand-primary;
+    font-weight: 400;
+  }
+
+  .embed-container {
+    height: 422px;
+    margin: auto;
+    width: 55%;
+    border-radius: 9px;
+    position: relative;
+    margin-bottom: 32px;
+
+    @include media-breakpoint-down(sm) {
+      width: 95%;
+      height: 300;
+    }
+
+    .video {
+      height: 100%;
+
+      iframe {
+        position: relative;
+        height: 100%;
+        z-index: 1;
+        max-width: 100%;
+      }
+    }
+
+    .poster {
+      height: 100%;
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      top: 0;
+      transition: all 2s ease-out;
+      background-size: cover;
+      background-position: center;
+
+      .play-icon {
+        position: absolute;
+        bottom: 87px;
+        cursor: pointer;
+      }
+
+      /* stylelint-disable */
+      span {
+        position: absolute;
+        color: $brand-white;
+        bottom: 60px;
+      }
+      /* stylelint-enable */
+    }
+  }
+}
+
+.selling-background {
+  height: 250px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include media-breakpoint-up(md) {
+    height: 400px;
+  }
+}

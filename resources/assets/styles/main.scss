@@ -1,0 +1,44 @@
+/* eslint-disable */
+@import "common/variables";
+
+/** Import everything from autoload */
+@import "./autoload/**/*";
+@import "~slick-carousel/slick/slick-theme";
+@import "~slick-carousel/slick/slick";
+@import "~lightslider/dist/css/lightslider.min";
+@import "~magnific-popup/dist/magnific-popup";
+
+/**
+ * Import npm dependencies
+ *
+ * Prefix your imports with `~` to grab from node_modules/
+ * @see https://github.com/webpack-contrib/sass-loader#imports
+ */
+// @import "~some-node-module";
+
+/** Import theme styles */
+@import "common/*";
+@import "components/*";
+@import "layouts/*";
+
+@font-face {
+  font-family: 'DroidKufi-Regular';
+  src: url('../fonts/DroidKufi-Regular.ttf');
+  src:
+    local('DroidKufi-Regular'),
+    local('../fonts/DroidKufi-Regular'),
+    url('../fonts/DroidKufi-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DroidKufi-Bold';
+  src: url('../fonts/DroidKufi-Bold.ttf');
+  src:
+    local('DroidKufi-Bold'),
+    local('../fonts/DroidKufi-Bold'),
+    url('../fonts/DroidKufi-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
