@@ -4,16 +4,14 @@ html {
   overflow-x: hidden;
 }
 
-/* stylelint-disable */
-body {
-  [dir=rtl] & {
-    font-family: 'DroidKufi-Regular';
-  }
-}
-/* stylelint-enable */
-
 a:hover {
   text-decoration: none;
+}
+
+ul {
+  [dir=rtl] & {
+    padding-right: 0;
+  }
 }
 
 .custom-border {
@@ -56,4 +54,18 @@ a:hover {
     display: flex;
     order: 2;
   }
+}
+
+.gallery-bg {
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+}
+
+.gform_confirmation_wrapper {
+  padding: 65px 20px;
+  font-size: 30px;
+  text-align: center;
+  max-width: 80%;
+  margin: auto;
 }

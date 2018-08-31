@@ -8,7 +8,14 @@
       <div class="col-md-5 col-12 order-one">
         <div class="content">
           <div class="title">
-            <span>{{ _e('about','ramsco') }}</span>
+            <span>
+
+              @if(is_rtl())
+              {{ _e('نبذه عن','ramsco') }}
+              @else
+              {{ _e('about','ramsco') }}
+              @endif
+            </span>
             @if(get_field('website_logo','option'))
               <img src="{{ get_field('website_logo','option') }}" alt="Website logo">
             @else
@@ -17,14 +24,23 @@
           </div><!-- End Title -->
 
           <div class="descreption">
-            @php( $content = new WP_Query( 'pagename=about' ) )
+
+              @php( $content = new WP_Query( 'pagename=about' ) )
+
               @while ( $content->have_posts() ) @php($content->the_post())
 
                 <span class="d-block mb-3">{{ wp_trim_words(get_the_content(),50) }}</span>
               @endwhile
             @php(wp_reset_postdata())
 
-              <a class="more-btn" href="{{ get_permalink( get_page_by_path( 'about' ) ) }}">{{ _e('read more','ramsco') }}</a>
+              <a class="more-btn" href="@if(is_rtl()){{ get_permalink( get_page_by_path('aboutus') ) }} @else {{ get_permalink( get_page_by_path( 'about' ) ) }} @endif">
+
+                @if(is_rtl())
+                {{ _e('عرض المزيد','ramsco') }}
+                @else
+                {{ _e('read more','ramsco') }}
+                @endif
+              </a>
 
           </div><!-- End descreption -->
 
@@ -35,10 +51,20 @@
 </section>
 
 
-@if(get_field('about_img','option'))
-  @php($img = get_field('about_img','option'))
-@else
+
+
+@if(is_rtl())
+  @if(get_field('ar_about_img','option'))
+  @php($img = get_field('ar_about_img','option'))
+  @else
   @php($img = get_template_directory_uri().'/assets/images/after-about.png')
+  @endif
+@else
+  @if(get_field('about_img','option'))
+    @php($img = get_field('about_img','option'))
+  @else
+    @php($img = get_template_directory_uri().'/assets/images/after-about.png')
+  @endif
 @endif
 <div style="background-image: url('{{ $img }}')" class="home-background"></div><!-- End Background Image -->
 

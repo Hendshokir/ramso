@@ -7,21 +7,155 @@
     font-weight: 400;
   }
 
-  span.current {
-    color: $brand-primary;
-  }
-
-  .page-numbers {
-    color: #000;
-
-    &:hover {
-      color: $brand-primary;
+  .gallery {
+    .image {
+      background-size: cover;
+      background-position: top;
+      background-repeat: no-repeat;
+      height: 300px;
     }
   }
 
-  .gallery-bg {
-    height: 200px;
+  .pagination {
+    display: flex;
+    justify-content: flex-start;
+
+    span.current {
+      color: $brand-primary;
+      margin: 5px;
+    }
+
+    .page-numbers {
+      color: #000;
+      margin: 5px;
+
+      &:hover {
+        color: $brand-primary;
+      }
+    }
+  }
+}
+
+// contact us
+.contact-page {
+  .acf-map {
+    width: 100%;
+    height: 650px;
+
+    @include media-breakpoint-down(sm) {
+      height: 450px;
+    }
+
+    img {
+      max-width: inherit !important;
+    }
+  }
+
+  .contact-form {
+    min-height: 1000px;
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+    .form-card {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -200px;
+      border-radius: 20px;
+      padding: 0;
+      background-color: transparent;
+
+      @include media-breakpoint-down(sm) {
+        top: -150px;
+      }
+
+      h4 {
+        color: $brand-primary;
+        border-bottom: 2px solid $brand-primary;
+        margin-bottom: 30px;
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+
+      .form-img {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @include media-breakpoint-down(sm) {
+          height: 200px;
+        }
+      }
+
+      .keep-in-touch {
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+
+        [dir=rtl] & {
+          text-align: right;
+        }
+      }
+
+      .form {
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        background-color: rgba(60, 166, 78, 0.8);
+        color: $brand-white;
+
+        .gfield {
+          width: 50%;
+          display: inline-block;
+
+          @include media-breakpoint-down(sm) {
+            width: 100%;
+          }
+
+          &:last-of-type {
+            width: 92%;
+
+            @include media-breakpoint-down(sm) {
+              width: 100%;
+            }
+          }
+
+          input {
+            width: 80%;
+
+            @include media-breakpoint-down(sm) {
+              width: 100%;
+            }
+          }
+
+          input,
+          textarea {
+            border: 0;
+            background-color: transparent;
+            border-bottom: 2px solid $brand-white;
+            border-radius: 0;
+
+            &::placeholder {
+              color: $brand-white;
+            }
+          }
+        }
+
+        .gform_footer {
+          text-align: right;
+          max-width: 90.5%;
+
+          @include media-breakpoint-down(sm) {
+            max-width: 100%;
+          }
+
+          .btn {
+            background-color: $brand-white;
+            border: 0;
+            color: $brand-primary;
+          }
+        }
+      }
+    }
   }
 }

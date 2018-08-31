@@ -15,15 +15,15 @@ function c95_base_pagination($args = array(), $query_object = 'wp_query') {
     $big = 99999; // This needs to be an unlikely integer
     // For more options and info view the docs for paginate_links()
     // http://codex.wordpress.org/Function_Reference/paginate_links
-    $current_page = max(1, 10);
+    $current_page = max(1, get_query_var('paged'));
     $pages_count = $main_query->max_num_pages;
     $default_args = array(
         //'base' => str_replace($big, '%#%', get_pagenum_link($big)),
         'current' => $current_page,
         'total' => $pages_count,
         'mid_size' => 2,
-        'prev_text' => '<i class="fa fa-caret-left" aria-hidden="true"></i>',
-        'next_text' => '<i class="fa fa-caret-right" aria-hidden="true"></i>',
+        'prev_text' => ' '.'<i class="fa fa-caret-left" aria-hidden="true"></i>',
+        'next_text' => ' '.' <i class="fa fa-caret-right" aria-hidden="true"></i>',
         'type' => 'array'
     );
     $args = wp_parse_args($args, $default_args);
@@ -31,9 +31,9 @@ function c95_base_pagination($args = array(), $query_object = 'wp_query') {
     if ($paginate_links) {
         ?>
         <div class="pagination-c95 col-12 navigation">
-            <ul class="pagination d-flex flex-row-reverse">
+            <ul  class="pagination">
                 <?php foreach ($paginate_links as $link): ?>
-                    <li><?php echo $link; ?></li>
+                    <li class="mx-1 my-2"><?php echo $link; ?></li>
                 <?php endforeach; ?>
             </ul>
         </div>

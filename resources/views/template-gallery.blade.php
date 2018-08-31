@@ -37,26 +37,30 @@
       @endif
 
       @if(!empty($images))
-        <ul class="row list-unstyled">
+        <ul class="row list-unstyled p-0">
           @foreach( $images as $image )
             <li class="col-md-4 col-sm-6 col-12 px-0 p-1 ">
-              <a class="gallery" href="{{ $image['sizes']['large'] }}"><img class="w-100" src="{{ $image['sizes']['large'] }}" alt="<?php echo $image['alt']; ?>" /></a>
+              <a class="gallery" href="{{ $image['sizes']['large'] }}">
+                <div class="image w-100" style="background-image:url('{{ $image['sizes']['large'] }}')"></div>
+              </a>
             </li>
           @endforeach
         </ul>
       @endif
 
 
-      @php($big = 999999999)
-      <?php
-      echo paginate_links(array(
-        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-        'format' => '?paged=%#%',
-        'current' => $current_page,
-        'total' => $total_pages,
-        'before_page_number' => '<span class="screen-reader-text">'.__('Page ','ramsco').' </span>'
-      ));
-      ?>
+      <div class="pagination">
+        @php($big = 999999999)
+        <?php
+        echo paginate_links(array(
+          'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+          'format' => '?paged=%#%',
+          'current' => $current_page,
+          'total' => $total_pages,
+          'before_page_number' => '<span class="screen-reader-text">'.__('Page ','ramsco').' </span>'
+        ));
+        ?>
+      </div>
     </section>
 
      @if(get_field('gallery_bg'))

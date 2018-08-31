@@ -32,4 +32,30 @@ class FrontPage extends Controller
 
       return $slide;
     }
+
+    /**
+    * Function Name: ar_general_slider()
+    * This Function is used to handle General Slider in Home Page
+    * It returns the values of ACF slider repeater and its sub fields
+    * This Function is called in partial/home/slider.blade
+    */
+    public function arGeneralSlider()
+    {
+      $slide = [];
+
+        if( have_rows('ar_home_slider','option') ):
+          while ( have_rows('ar_home_slider','option') ) : the_row();
+
+            $slide[] = [
+              'image'   =>  get_sub_field('ar_image'),
+              'highlighted_title'    =>  get_sub_field('ar_highlighted_title'),
+              'title'    =>  get_sub_field('ar_title'),
+              'content'  =>  get_sub_field('ar_content')
+            ];
+
+          endwhile;
+        endif;
+
+      return $slide;
+    }
 }

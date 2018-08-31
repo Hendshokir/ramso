@@ -1,7 +1,13 @@
 <header>
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light justify-content-between align-items-center row pl-md-0 pr-md-0">
-      <a class="navbar-brand" href="{{ home_url('/') }}">
+
+      @if(is_rtl())
+      @php($home= home_url('/ar/'))
+      @else
+      @php($home= home_url('/'))
+      @endif
+      <a class="navbar-brand p-0" href="{{ $home }}">
         @if(get_field('website_logo','option'))
           <img src="{{ get_field('website_logo','option') }}" class="img-fluid" alt="ramsco">
         @else

@@ -1,20 +1,17 @@
 <section class="latest-product">
   <div class="container">
     <div class="row justify-content-center">
-
+      @if(is_rtl())
+      @php($category = 'منتج مميز')
+      @else
+      @php($category = 'feature product')
+      @endif
       @php
         $args = array(
             'post_type' => 'product',
             'posts_per_page' => 3,
             'suppress_filters' => 0,
-            'meta_query' => array(
-              array(
-                'key' => 'c95_post_views_count',
-                'value' => 5,
-                'type' => 'NUMERIC',
-                'compare' => '>=',
-              ),
-            ),
+            'category_name' => $category,
           );
         $product = new WP_Query($args);
       @endphp
@@ -23,16 +20,21 @@
         @while($product->have_posts())
           @php ($product->the_post())
           <div class="card mb-3 text-center border-0 col-sm-4 col-8">
-            <a href="{{the_permalink()}}" class="card-img-top img-fuild" style="background-image:url('{{ get_the_post_thumbnail_url( get_the_ID(), 'latest-product' ) }}')" alt="{{ the_title() }}"></a>
+            <div class="card-img-top img-fuild" style="background-image:url('{{ get_the_post_thumbnail_url( get_the_ID(), 'latest-product' ) }}')"></div>
             <div class="card-body p-0 d-flex justify-content-center w-100">
-              <a href="{{the_permalink()}}"><h5 class="text-uppercase text-white card-title">{{ the_title() }}</h5></a>
+              <h5 class="text-uppercase text-white card-title">{{ the_title() }}</h5>
             </div>
           </div>
         @endwhile
       @endif
 
       <div class="archive-link col-12 d-flex justify-content-center">
-        <a href="{{ get_post_type_archive_link( 'product' ) }}">{{ _e('View Products','ramsco') }}</a>
+        <a href="{{ get_post_type_archive_link( 'product' ) }}">
+          @if(is_rtl()){{ _e('عرض المنتجات','ramsco') }}
+          @else
+          {{ _e('View Products','ramsco') }}
+          @endif
+        </a>
       </div>
 
     </div>

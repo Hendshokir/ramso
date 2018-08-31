@@ -91,3 +91,15 @@ Container::getInstance()
             'framework' => require dirname(__DIR__).'/framework/index.php',
         ]);
     }, true);
+
+    // map
+
+    function my_acf_google_map_api( $api ){
+
+        $api['key'] = 'AIzaSyDxX6XxfHxbMhdblbM8x3KlYak3NiynsBs';
+
+        return $api;
+
+    }
+
+    add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');

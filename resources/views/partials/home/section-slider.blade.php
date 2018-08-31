@@ -3,18 +3,37 @@
   <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner h-100">
       @php($counter=0)
-      @if( $general_slider )
-        @foreach($general_slider as $slider)
-          <div class="carousel-item h-100 {{ $counter == 0 ? 'active' : '' }}" style="background-image:url('{{ $slider['image']['sizes']['large'] }}')">
-            <div class="overlay w-100 h-100"></div>
-            <div class="carousel-caption d-block py-0">
-            <h5><span>{{$slider['highlighted_title']}}</span>{{ $slider['title'] }}</h5>
-              <p>{{ $slider['content'] }}</p>
+      @if(is_rtl())
+        @if( $ar_general_slider )
+          @foreach($ar_general_slider as $slider)
+            <div class="carousel-item h-100 {{ $counter == 0 ? 'active' : '' }}" style="background-image:url('{{ $slider['image']['sizes']['large'] }}')">
+              <div class="overlay w-100 h-100"></div>
+              <div class="carousel-caption d-block py-0">
+              <h5><span>{{$slider['highlighted_title']}}</span>{{ $slider['title'] }}</h5>
+                <p>{{ $slider['content'] }}</p>
+              </div>
             </div>
-          </div>
-          @php($counter++)
-        @endforeach
+            @php($counter++)
+          @endforeach
+        @endif
+
+      @else
+
+        @if( $general_slider )
+          @foreach($general_slider as $slider)
+            <div class="carousel-item h-100 {{ $counter == 0 ? 'active' : '' }}" style="background-image:url('{{ $slider['image']['sizes']['large'] }}')">
+              <div class="overlay w-100 h-100"></div>
+              <div class="carousel-caption d-block py-0">
+              <h5><span>{{$slider['highlighted_title']}}</span>{{ $slider['title'] }}</h5>
+                <p>{{ $slider['content'] }}</p>
+              </div>
+            </div>
+            @php($counter++)
+          @endforeach
+        @endif
+
       @endif
+
     </div>
     <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>

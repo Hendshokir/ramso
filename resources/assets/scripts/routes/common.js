@@ -41,7 +41,7 @@ export default {
         $(".latest-news iframe")[0].src += "&autoplay=1&mute=0";
 
         e.preventDefault();
-      })
+      });
 
       // gallery popup
       $('ul .gallery').magnificPopup({
